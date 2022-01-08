@@ -2,21 +2,24 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
+
+    public TurretBlueprint standardTurret;
+    public TurretBlueprint rocketLauncher;
     BuildManager buildManager;
 
     void Start()
     {
         buildManager = BuildManager.instance;
     }
-    public void PurchaseStandardTurret()
+    public void SelectStandardTurret()
     {
         Debug.Log("Standard selected");
-        buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);
+        buildManager.SelectTurretToBuild(standardTurret);
     }
 
-    public void PurchaseRocketLauncher()
+    public void SelectRocketLauncher()
     {
         Debug.Log("Rocket another");
-        buildManager.SetTurretToBuild(buildManager.rocketLauncherPrefab);
+        buildManager.SelectTurretToBuild(rocketLauncher);
     }
 }
