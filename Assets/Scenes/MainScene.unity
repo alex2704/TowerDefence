@@ -13616,9 +13616,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63a3f4a876f08c488f3ed0ecb61c73a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 8355275225308060476, guid: bc6919aaeffaf0d42bcd54ac9fa4669e, type: 3}
+  waves:
+  - enemy: {fileID: 2176923468894730088, guid: bc6919aaeffaf0d42bcd54ac9fa4669e, type: 3}
+    count: 1
+    rate: 2
+  - enemy: {fileID: 2176923468894730088, guid: bc6919aaeffaf0d42bcd54ac9fa4669e, type: 3}
+    count: 2
+    rate: 2
+  - enemy: {fileID: 2176923468894730088, guid: bc6919aaeffaf0d42bcd54ac9fa4669e, type: 3}
+    count: 6
+    rate: 2
+  - enemy: {fileID: 0}
+    count: 0
+    rate: 0
+  - enemy: {fileID: 0}
+    count: 0
+    rate: 0
   spawnPoint: {fileID: 34312299}
-  timeBetweenWaves: 10
+  timeBetweenWaves: 2
   waveCountdownText: {fileID: 252926893}
 --- !u!4 &1457205813
 Transform:
