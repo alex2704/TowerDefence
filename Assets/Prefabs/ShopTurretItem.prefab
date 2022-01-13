@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $100
+  m_Text: $350
 --- !u!1 &2794031311737587893
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 2794031311737587898}
   - component: {fileID: 2794031311737587899}
   - component: {fileID: 2794031311737587896}
+  - component: {fileID: 9196204290592061284}
   m_Layer: 5
   m_Name: ShopTurretItem
   m_TagString: Untagged
@@ -147,7 +148,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e6c6ad9aefd92684ea67a36b2f65f7d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d1d0154705137734fb32035130940b0b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -200,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2794031311737587898}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 9196204290592061284}
+        m_TargetAssemblyTypeName: ShopTurretItem, Assembly-CSharp
+        m_MethodName: CallSelectTurret
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2794031311737587896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,11 +229,53 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 100
-  m_PreferredHeight: 100
+  m_PreferredWidth: 70
+  m_PreferredHeight: 70
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &9196204290592061284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2794031311737587893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec06f4195451b4e4b93b8c99d422729e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turrets: []
+  standardTurret:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0
+    image: {fileID: 0}
+    placeholder: {fileID: 0}
+  rocketLauncher:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0
+    image: {fileID: 0}
+    placeholder: {fileID: 0}
+  laserBeamer:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0
+    image: {fileID: 0}
+    placeholder: {fileID: 0}
+  shopTurretItem: {fileID: 0}
+  turret:
+    prefab: {fileID: 3699391627461949186, guid: 9056a9d0c95a22c4888a02285d2c5335, type: 3}
+    cost: 350
+    upgradedPrefab: {fileID: 254142494891858321, guid: c0964ca0e937e7f488ef35d8eb406eea, type: 3}
+    upgradeCost: 200
+    image: {fileID: 21300000, guid: d1d0154705137734fb32035130940b0b, type: 3}
+    placeholder: {fileID: 8485082924363361525, guid: acdf852bdc325fe40aa8e5e66f0424e6, type: 3}
 --- !u!1 &6671339643629857935
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,7 +329,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6671339643629857935}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 

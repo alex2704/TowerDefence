@@ -8,6 +8,7 @@ public class Node : MonoBehaviour
     public Color hoverColor;
     public Color notPermittedColor;
     public Vector3 positionOffset;
+    public GameObject turretPlaceholder = null;
 
     private Renderer rend;
 
@@ -62,6 +63,7 @@ public class Node : MonoBehaviour
 
         PlayerStats.Money -= blueprint.cost;
 
+        Destroy(turretPlaceholder);
         GameObject _turret = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         turret = _turret;
         turretBlueprint = blueprint;
@@ -101,12 +103,22 @@ public class Node : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 
-        if (!buildManager.CanBuild)
+        if (!buildManager.CanBuild || turret!= null)
+        {
+            if(turretPlaceholder != null)
+            {
+                Destroy(turretPlaceholder);
+            }
             return;
+        }
 
         if(buildManager.HasMoney)
         {
             rend.material.color = hoverColor;
+            if (turretPlaceholder == null && buildManager.CanBuild)
+            {
+                turretPlaceholder = Instantiate(buildManager.GetTurretToBuild().placeholder, GetBuildPosition(), Quaternion.identity);
+            }
         } else
         {
             rend.material.color = notPermittedColor;
@@ -116,5 +128,6 @@ public class Node : MonoBehaviour
     void OnMouseExit()
     {
         rend.material.color = startColor;
+        Destroy(turretPlaceholder);
     }
 }
