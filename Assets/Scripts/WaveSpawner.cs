@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
+
+
 public class WaveSpawner : MonoBehaviour
 {
     public static int EnemiesAlive = 0;
@@ -9,6 +11,8 @@ public class WaveSpawner : MonoBehaviour
     public Wave[] waves;
 
     public Transform spawnPoint;
+
+    public GameObject[] enemies;
 
     public float timeBetweenWaves = 5.5f;
 
@@ -42,13 +46,24 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpanWave()
     {
         PlayerStats.Rounds++;
-
-        Wave wave = waves[waveIndex];
-
-        for (int i=0; i< wave.count; i++)
+        if (waveIndex >= waves.Length)
         {
-            SpawnEnemy(wave.enemy);
-            yield return new WaitForSeconds(1f / wave.rate);
+            for (int i = 0; i < waveIndex; i++)
+            {
+                int index = Random.Range(0, enemies.Length);
+                SpawnEnemy(enemies[index]);
+                yield return new WaitForSeconds(1f / 2);
+            }
+        }
+        else
+        {
+            Wave wave = waves[waveIndex];
+
+            for (int i = 0; i < wave.count; i++)
+            {
+                SpawnEnemy(wave.enemy);
+                yield return new WaitForSeconds(1f / wave.rate);
+            }
         }
         waveIndex++;
 
