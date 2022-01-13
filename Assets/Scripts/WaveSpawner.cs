@@ -45,6 +45,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpanWave()
     {
+        PlayerStats.Money += PlayerStats.Rounds * 30;
         PlayerStats.Rounds++;
         if (waveIndex >= waves.Length)
         {
