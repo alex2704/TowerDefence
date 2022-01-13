@@ -25,11 +25,6 @@ public class GameManager : MonoBehaviour
         if (GameIsOver)
             return;
 
-        if (Input.GetKeyDown("e"))
-        {
-            EndGame();
-        }
-
         if (!IsContinue && !GameIsWin && PlayerStats.Waves < PlayerStats.Rounds)
         {
             WinGame();
@@ -46,6 +41,7 @@ public class GameManager : MonoBehaviour
         GameIsOver = true;
 
         gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
     
     void WinGame()
